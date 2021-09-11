@@ -47,9 +47,11 @@ const reducer = (prevState = initialState, action) => {
         dbService.collection('post').doc(action.payload.id).update({
           post_like: draft.likeNum,
         });
-        dbService.collection('comment').doc(action.payload.comId).update({
-          post_like: draft.likeNum,
-        });
+        if(action.payload.comId){
+          dbService.collection('comment').doc(action.payload.comId).update({
+            post_like: draft.likeNum,
+          });
+        }
         break;
       case LIKE_NONLIKE:
         if(draft.likeNum === 0){
@@ -59,9 +61,11 @@ const reducer = (prevState = initialState, action) => {
         dbService.collection('post').doc(action.payload.id).update({
           post_like: draft.likeNum,
         });
-        dbService.collection('comment').doc(action.payload.comId).update({
-          post_like: draft.likeNum,
-        });
+        if(action.payload.comId){
+          dbService.collection('comment').doc(action.payload.comId).update({
+            post_like: draft.likeNum,
+          });
+        }
         break;
       default:
         return prevState;
@@ -79,9 +83,13 @@ export const likeMiddleware = (id, type) => async dispatch => {
       arr.num = doc.data().post_like;
       arr.id = id;
     })
-    com.forEach(doc => {
-      arr.comId = doc.data().comment_id;
-    })
+    if(com){
+      com.forEach(doc => {
+        arr.comId = doc.data().comment_id;
+      })
+    }else{
+      arr.comId = null;
+    }
     if(type === 'init'){
       dispatch(getLike(arr));
       return;
