@@ -29,7 +29,6 @@ const Post = ({
   setLikeRender,
   setViewRender,
   viewRender,
-  postView,
   update,
 }) => {
   const {
@@ -62,6 +61,8 @@ const Post = ({
 
   let [check, setCheck] = useState(false);
 
+  let [down, setDown] = useState(false);
+
   const [widthSize, setWidthSize] = useState(window.innerWidth);
 
   // writeModal
@@ -84,6 +85,8 @@ const Post = ({
 
   const comment = useRef();
   const textarea = useRef();
+  const arrow = useRef();
+  const downText = useRef();
 
   // 좋아요 아이콘 토글 -> 할 때마다 firestore에 저장 되어야 함
   const onLikeToggle = async () => {
@@ -151,13 +154,6 @@ const Post = ({
     setBar(!bar);
   };
 
-  const onContainerClick = (e) => {
-    if(e.target !== e.currentTarget){
-      return;
-    }
-    onHideModal();
-  }
-
   // 모달창 닫기
   const onHideModal = () => {
     setViewRender(!viewRender);
@@ -175,6 +171,23 @@ const Post = ({
     }
   }, []);
 
+  const onDown = () => {
+    comment.current.lastElementChild.scrollIntoView({behavior: "smooth", block: "end"});
+  }
+
+  const onScroll = () => {
+    if(comment.current.scrollTop > 50){
+      setDown(false);
+    }
+  }
+
+  const onTitleIn = () => {
+    downText.current.style.display = 'block';
+  }
+
+  const onTitleOut = () => {
+    downText.current.style.display = 'none';
+  }
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -203,12 +216,20 @@ const Post = ({
     if (location.state.hasOwnProperty("check")) {
       setCheck(true);
     }
+    if(comment.current.scrollHeight !== comment.current.clientHeight){
+      setDown(true);
+    }
   }, []);
 
+
   return (
-    <S.Container onClick={e=>onContainerClick(e)}>
+    <S.Container>
       <S.Contents>
-        <ul ref={comment}>
+        {down && 
+        <S.Arrow ref={arrow} className="fas fa-arrow-circle-down" onClick={onDown} onMouseOver={onTitleIn} onMouseOut={onTitleOut}>
+          <S.DownText ref={downText}>밑으로 내려보세요!</S.DownText>
+        </S.Arrow>}
+        <ul ref={comment} onScroll={onScroll}>
           <S.Header>
             <span>
               <span>{post_title}</span>
@@ -249,7 +270,6 @@ const Post = ({
                 <i onClick={onLikeToggle} className="far fa-heart"></i>
               )}
               {update ? <span>0</span> : (check ? <span>{location.state.postData.post_like}</span> : <span>{likeNum}</span>)}
-              {/* {update ? <span>0</span> : <span>{likeNum}</span>} */}
               <p>명</p>이 좋아합니다
             </span>
             {bookmarkPost ? (
@@ -266,7 +286,7 @@ const Post = ({
               ></i>
             )}
           </S.Like>
-          <Comment postId={post_id} postregion={post_region} userDB={userDB} postLike={post_like} postView={post_view}/>
+          <Comment postId={post_id} postregion={post_region} userDB={userDB} postLike={post_like} postView={post_view} check={check}/>
         </ul>
       </S.Contents>
       <WriteModal visible={visible} isVisible={postEdit} postData={postData} />

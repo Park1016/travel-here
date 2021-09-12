@@ -98,7 +98,6 @@ const CommentList = ({ com, add, onEdit, onDelete, onScroll, render, user }) =>{
         {edit && <S.Check onClick={onDoneEdit}>수정완료</S.Check>}
         {userCheck && <i className="fas fa-ellipsis-v" onClick={onEditDelete}></i>}
       </S.EditDel>
-      {/* <S.Time>{timeCalculate(com.time)}</S.Time> */}
     </S.CommentList>
   )
 }

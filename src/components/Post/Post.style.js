@@ -41,11 +41,11 @@ const Contents = styled.div`
   background-color: white;
   border-radius: 10px;
   padding: 3rem 0;
+  position: relative;
   ${flex};
   animation: ${showPost} 500ms;
   animation-iteration-count: 1;
   animation-direction: normal;
-  /* filter: blur(5px); */
   @media screen and (max-width: 500px) {
     width: 25rem;
     height: 30rem;
@@ -66,6 +66,22 @@ const Contents = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
     ${hideScrollbar};
+    /* overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: lightgray;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: darkgray;
+    }
+    ::-webkit-scrollbar-button {
+      width: 0;
+      height: 0;
+    } */
+    
     @media screen and (max-width: 500px) {
       width: 23rem;
     }
@@ -389,6 +405,60 @@ const Test = styled.div`
   z-index: 20;
 `;
 
+const arrow = keyframes`
+  from {
+    transform: translateY(-5rem);
+    /* opacity: 0.5; */
+  }
+  25% {
+    transform: translateY(-2rem);
+    /* opacity: 1; */
+  }
+  50% {
+    transform: translateY(-5rem);
+    /* opacity: 0.5; */
+  }
+  75% {
+    transform: translateY(-2rem);
+    /* opacity: 1; */
+  }
+  to {
+    transform: translateY(-5rem);
+    /* opacity: 0.5; */
+  }
+`;
+
+const Arrow = styled.i`
+  font-size: 3rem;
+  color: #1A46A0;
+  background-color: white;
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  bottom: 0;
+  transform: translateY(-5rem);
+  animation: ${arrow} 4000ms;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  z-index: 50;
+  :hover {
+    ${cursorPointer};
+  }
+`;
+
+const DownText = styled.div`
+  display: none;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-4.5rem, -3.5rem);
+  width: 12rem;
+  padding: 0.3rem 0.2rem;
+  border-radius: 10px;
+  color: white;
+  background: rgb(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+`;
+
 export {
   Container,
   Contents,
@@ -404,4 +474,6 @@ export {
   AlertText1,
   AlertText2,
   Test,
+  Arrow,
+  DownText,
 };

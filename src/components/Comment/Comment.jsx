@@ -1,15 +1,15 @@
 ﻿import React, { memo, useRef, useState, useEffect } from 'react';
 import * as S from "./Comment.style"; 
-import { commentAdd, commentEdit, commentDelete } from 'store/modules/comment';
 import { dbService } from "firebase.js";
 import { useDispatch, useSelector } from 'react-redux';
 import { commentMiddleware } from 'store/modules/comment';
+import Loading from '../Loading/Loading';
 import CommentList from './CommentList';
 import firebase from "firebase";
 import { v4 as uuidv4 } from "uuid";
 
 
-const Comment = memo(({ postId, postregion, userDB, postLike, postView}) => {
+const Comment = memo(({ postId, postregion, userDB, postLike, postView, check}) => {
 
   const auth = firebase.auth();
 
@@ -22,10 +22,11 @@ const Comment = memo(({ postId, postregion, userDB, postLike, postView}) => {
   const dispatch = useDispatch();
 
 
-  let allComment = useSelector(state => state.comment.data);
+  const allComment = useSelector(state => state.comment.data);
 
   let [render, setRender] = useState(false);
   const [user, setUser] = useState('');
+  let [load, setLoad] = useState(true);
 
   // 댓글 추가 시 스크롤 내리기 용도
   let [add, setAdd] = useState('');
@@ -65,7 +66,6 @@ const Comment = memo(({ postId, postregion, userDB, postLike, postView}) => {
     if(!textarea.current.value){
       return;
     }
-
     let time = Date.now();
 
     await dbService.collection('comment').doc(uuid).set({
@@ -115,6 +115,9 @@ const Comment = memo(({ postId, postregion, userDB, postLike, postView}) => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
     });
+    setTimeout(()=>{
+      setLoad(false);
+    }, 3000)
   },[]);
 
   return (
@@ -141,6 +144,9 @@ const Comment = memo(({ postId, postregion, userDB, postLike, postView}) => {
             user={user}/>
           )
       })}
+      {check && (load && <S.Loading>
+        <Loading width="30" height="30" />
+      </S.Loading>)}
     </S.Comment>
   )
 })

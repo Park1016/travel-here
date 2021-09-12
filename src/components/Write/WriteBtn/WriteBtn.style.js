@@ -12,6 +12,7 @@ const Button = styled.div`
   height: 4rem;
   transition: 0.3s;
   background-color: ${darkBlue};
+  border: 0.2rem solid transparent;
   z-index: 10;
   ::before {
     content: "";

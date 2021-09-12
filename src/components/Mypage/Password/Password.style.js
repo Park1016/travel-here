@@ -1,12 +1,5 @@
 ﻿import styled from 'styled-components';
-import {
-  flex,
-  marginTop,
-  fontSize,
-  hideScrollbar,
-  cursorPointer,
-  frame,
-} from '../styleConstatns';
+import { flex } from '../styleConstatns';
 
 const pink = "#ff73b3";
 
@@ -29,14 +22,14 @@ const BackBtn = styled.button`
   right: 1em;
 `;
 
-const Contents = styled.div`
+const Contents = styled.li`
   position: relative;
   width: 20rem;
   height: 10rem;
   border-radius: 20px;
   ${flex};
   overflow: hidden;
-  margin-bottom: 3rem;
+  transform: translateY(6rem);
   h3 {
     margin-bottom: 16px;
     font-size: 13px;

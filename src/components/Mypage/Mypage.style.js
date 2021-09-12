@@ -119,6 +119,18 @@ const BackImage = styled.div`
     background: darkgray;
     border-radius: 50%;
   }
+  ${({ uid }) => {
+    if (uid) {
+      return css`
+        padding: 2rem 0;
+      `;
+    }
+    if (!uid) {
+      return css`
+        padding: 1.5rem 0;
+      `;
+    }
+  }}
 `;
 
 const Title = styled.span`
@@ -173,12 +185,6 @@ const ListArea = styled.div`
       color: rgb(255, 255, 255, 0.7);
     }
   }
-  ul {
-    width: 15rem;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255, 0.1);
-    margin-bottom: 2rem;
-  }
   li {
     width: 13rem;
     padding: 1rem 0;
@@ -196,6 +202,24 @@ const ListArea = styled.div`
     border-top: 1px rgb(255, 255, 255, 0.2) solid;
     border-bottom: 1px rgb(255, 255, 255, 0.2) solid;
   }
+`;
+
+const ListAreaUl = styled.ul`
+  width: 15rem;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255, 0.1);
+  ${({ uid }) => {
+    if (uid) {
+      return css`
+        margin-bottom: 3rem;
+      `;
+    }
+    if (!uid) {
+      return css`
+        margin-bottom: 2rem;
+      `;
+    }
+  }}
 `;
 
 const rightclose = keyframes`
@@ -266,20 +290,29 @@ const Content = styled.div`
   ul {
     height: 26rem;
     overflow-y: scroll;
+    ${flex};
+    justify-content: flex-start;
     ${hideScrollbar};
     li:nth-child(1) {
       text-align: center;
-      margin-bottom: 2rem;
       font-size: 1.2rem;
+      width: 15rem;
+      padding-bottom: 1.5rem;
+      background: #001740;
+      position: fixed;
+      top: 2rem;
       i {
         position: absolute;
         font-size: 1.5rem;
-        top: 2rem;
-        left: 2.5rem;
+        top: 0rem;
+        left: 0rem;
       }
       i:hover {
         cursor: pointer;
       }
+    }
+    li:nth-child(2){
+      margin-top: 2.7rem;
     }
   }
 `;
@@ -336,6 +369,7 @@ export {
   Content,
   BackImage,
   ListArea,
+  ListAreaUl,
   Title,
   Header,
   Logincontainer,

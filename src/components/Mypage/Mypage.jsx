@@ -179,7 +179,7 @@ const Mypage = ({ user }) => {
     <>
       <S.Container isNavOpened={isNavOpened}>
         <S.Contents check={check}>
-          <S.BackImage>
+          <S.BackImage uid={uid.displayName}>
             {userDB.user_image ? (
               <img src={userDB.user_image} alt="배경사진" />
             ) : (
@@ -201,7 +201,7 @@ const Mypage = ({ user }) => {
             <p onClick={onInfo}>
               <i className="fas fa-user-alt"></i>내 정보
             </p>
-            <ul>
+            <S.ListAreaUl uid={uid.displayName}>
               <li onClick={onPost}>
                 <i className="fas fa-pencil-alt"></i>
                 내가 쓴 글
@@ -213,9 +213,9 @@ const Mypage = ({ user }) => {
               <li onClick={onBookmark}>
                 <i className="fas fa-bookmark"></i>찜
               </li>
-              <li onClick={onPassword}>
+              {!uid.displayName && <li onClick={onPassword}>
                 <i className="fas fa-unlock-alt"></i>비밀번호 변경
-              </li>
+              </li>}
 
               <li
                 onClick={() => setOpen(!open)}
@@ -224,7 +224,7 @@ const Mypage = ({ user }) => {
               >
                 <i className="fas fa-user-times"></i>탈퇴하기
               </li>
-            </ul>
+            </S.ListAreaUl>
           </S.ListArea>
         </S.Contents>
         {open && (
@@ -331,7 +331,7 @@ const Mypage = ({ user }) => {
                   user={user}
                 ></i>
               </li>
-              <Password />
+              <Password onDelayClose={onDelayClose}/>
             </ul>
           </S.Content>
         )}

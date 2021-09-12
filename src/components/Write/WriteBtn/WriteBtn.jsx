@@ -3,14 +3,9 @@ import { useHistory } from 'react-router-dom';
 import * as S from "./WriteBtn.style";
 
 
-export default function WriteBtn({ visible, isVisible }) {
-  const history = useHistory();
+export default function WriteBtn({ isVisible }) {
+  
   const title = useRef();
-  const movePage = () => {
-    history.push({
-      pathname: "/WriteModal",
-    })
-  };
 
   const onTitleIn = () => {
     title.current.style.display = 'flex';

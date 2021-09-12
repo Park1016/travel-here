@@ -2,7 +2,7 @@
 import * as S from './Password.style';
 import firebase from 'firebase';
 
-const Password = () => {
+const Password = ({ onDelayClose }) => {
   const [password, setPassword] = useState('');
 
   const [passwordError, setPasswordError] = useState('');
@@ -28,6 +28,9 @@ const Password = () => {
       .then(() => {
         setPassword('');
         alert('패스워드가 변경 되었습니다.');
+      })
+      .then(() => {
+        onDelayClose();
       })
       .catch((err) => {
         switch (err.code) {
@@ -84,7 +87,7 @@ const Password = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="변경할 비밀번호를 입력하세요"
             />
             <p className="errorMsg">{passwordError}</p>
             <button className="chageBtn" onClick={passwordChange}>
@@ -99,7 +102,7 @@ const Password = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="현재 비밀번호를 입력하세요"
             />
             <p className="errorMsg">{passwordError}</p>
             <button className="chageBtn" onClick={reAuth}>

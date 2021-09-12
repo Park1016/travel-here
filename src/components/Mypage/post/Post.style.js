@@ -3,7 +3,6 @@ import { flex, frame, cursorPointer } from "../styleConstatns";
 
 const List = styled.li`
   ${frame};
-
 `;
 
 const Null = styled.p`

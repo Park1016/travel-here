@@ -10,6 +10,7 @@ const Comment = styled.li`
   ${marginTop};
   padding-top: 1rem;
   border-top: 1px solid ${gray};
+  position: relative;
   section {
     position: relative;
     height: 3rem;
@@ -184,6 +185,18 @@ const Time = styled.p`
   white-space: nowrap;
 `;
 
+const Loading = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 4.5rem);
+  border-radius: 10px;
+  /* background: rgb(0,0,0,0.2); */
+  background: white;
+  ${flex};
+`;
+
 export {
   Comment,
   Content,
@@ -193,4 +206,5 @@ export {
   Toggle,
   Check,
   Time,
+  Loading,
 }
