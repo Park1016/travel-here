@@ -2,6 +2,7 @@
 import * as S from "./Comment.style";
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import getDate from "utils/getDate";
 
 
 const Comment = ({ user, ul, scroll }) => {
@@ -11,8 +12,6 @@ const Comment = ({ user, ul, scroll }) => {
   const history = useHistory();
 
   const arrow = useRef();
-
-  // const scroll = document.querySelector('.sc-ksXiFW');
 
   const check = commentDB.length === 0;
 
@@ -44,13 +43,14 @@ const Comment = ({ user, ul, scroll }) => {
         return(
         <S.List key={com.comment_id} onClick={()=>{onMovePage(com)}} title={'게시글 보러가기'}>
           <p>{com.comment_content}</p>
-          <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
+          <p>{getDate(com.time)}</p>
         </S.List>
         )
       })}
       {check &&
         <S.Null>작성한 댓글이 없습니다</S.Null>
       }
+      <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
     </>
   )
 }

@@ -2,6 +2,7 @@
 import * as S from "./Bookmark.style";
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import getDate from "utils/getDate";
 
 
 const Bookmark = ({ user, ul, scroll }) => {
@@ -43,13 +44,14 @@ const Bookmark = ({ user, ul, scroll }) => {
         return (
           <S.List key={bm.post_id} onClick={()=>onMovePage(bm)} title={'게시글 보러가기'}>
             <p>{bm.post_title}</p>
-            <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
+            <p>{getDate(bm.post_date)}</p>
           </S.List>
         )
       })}
       {check &&
         <S.Null>찜한 목록이 없습니다</S.Null>
       }
+      <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
     </>
   )
 }

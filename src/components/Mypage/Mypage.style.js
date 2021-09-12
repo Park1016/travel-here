@@ -304,7 +304,7 @@ const Content = styled.div`
       i {
         position: absolute;
         font-size: 1.5rem;
-        top: 0rem;
+        top: -0.1rem;
         left: 0rem;
       }
       i:hover {

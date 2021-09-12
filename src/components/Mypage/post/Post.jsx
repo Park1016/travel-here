@@ -2,6 +2,7 @@
 import * as S from "./Post.style";
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import getDate from "utils/getDate";
 
 
 const Post = ({ user, ul, scroll }) => {
@@ -43,13 +44,14 @@ const Post = ({ user, ul, scroll }) => {
         return(
         <S.List key={post.post_id} onClick={() => onMovePage(post)} title={'게시글 보러가기'}>
           <p>{post.post_title}</p>
-          <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
+          <p>{getDate(post.post_date)}</p>
         </S.List>
         )
       })}
       {check &&
         <S.Null>작성하신 게시글이 없습니다</S.Null>
       }
+      <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
     </>
   )
 }

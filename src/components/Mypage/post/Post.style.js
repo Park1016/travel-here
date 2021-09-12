@@ -3,6 +3,14 @@ import { frame } from "../styleConstatns";
 
 const List = styled.li`
   ${frame};
+  p:nth-child(1) {
+    word-break: keep-all;
+    margin-bottom: 0.7rem;
+  }
+  p:nth-child(2){
+    font-size: 0.8rem;
+    color: #409BF0;
+  }
 `;
 
 const Null = styled.p`
