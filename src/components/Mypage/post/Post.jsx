@@ -1,14 +1,16 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import * as S from "./Post.style";
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
-const Post = ({user}) => {
+const Post = ({ user, ul, scroll }) => {
 
   const postDB = useSelector(state => state.mypagePost.data);
 
   const history = useHistory();
+
+  const arrow = useRef();
 
   const check = postDB.length === 0;
 
@@ -27,12 +29,21 @@ const Post = ({user}) => {
   }
 
 
+  useEffect(() => {
+    if(ul.current.scrollHeight !== ul.current.clientHeight){
+      arrow.current.style.display = 'block';
+      scroll(arrow);
+    }
+  }, []);
+
+
   return (
     <>
       {!check && postDB.map((post) => {
         return(
         <S.List key={post.post_id} onClick={() => onMovePage(post)} title={'게시글 보러가기'}>
           <p>{post.post_title}</p>
+          <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
         </S.List>
         )
       })}

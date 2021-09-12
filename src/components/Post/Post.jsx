@@ -286,7 +286,14 @@ const Post = ({
               ></i>
             )}
           </S.Like>
-          <Comment postId={post_id} postregion={post_region} userDB={userDB} postLike={post_like} postView={post_view} check={check}/>
+          <Comment
+            postId={post_id}
+            postregion={post_region}
+            userDB={userDB}
+            postLike={post_like} 
+            postView={post_view}
+            check={check}
+          />
         </ul>
       </S.Contents>
       <WriteModal visible={visible} isVisible={postEdit} postData={postData} />

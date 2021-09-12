@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import * as S from './Password.style';
 import firebase from 'firebase';
 
@@ -76,6 +76,7 @@ const Password = ({ onDelayClose }) => {
         }
       });
   };
+
 
   return (
     <>

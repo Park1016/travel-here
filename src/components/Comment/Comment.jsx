@@ -9,7 +9,7 @@ import firebase from "firebase";
 import { v4 as uuidv4 } from "uuid";
 
 
-const Comment = memo(({ postId, postregion, userDB, postLike, postView, check}) => {
+const Comment = memo(({ postId, postregion, userDB, postLike, postView, check }) => {
 
   const auth = firebase.auth();
 
@@ -117,7 +117,7 @@ const Comment = memo(({ postId, postregion, userDB, postLike, postView, check}) 
     });
     setTimeout(()=>{
       setLoad(false);
-    }, 3000)
+    }, 3000);
   },[]);
 
   return (

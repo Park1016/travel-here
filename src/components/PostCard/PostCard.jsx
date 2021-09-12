@@ -117,7 +117,8 @@ const PostCard = ({ postData, location, view }) => {
               observer.unobserve(entry.target); // 1. 화면에서 나갈 때, 다시 발생안시키기 위해 2. element가 들어가야해서 .target
               getRepImage(repImageName.current);
               getProfileImage(profileImageName.current);
-              setTimeout(() => setIsView(true), 700);
+              setIsView(true);
+              // setTimeout(() => setIsView(true), 700);
             }
           });
         },

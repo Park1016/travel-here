@@ -1,14 +1,16 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import * as S from "./Bookmark.style";
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
-const Bookmark = ({ user }) => {
+const Bookmark = ({ user, ul, scroll }) => {
 
   const bookmarkDB = useSelector(state => state.mypageBookmark.data);
 
   const history = useHistory();
+
+  const arrow = useRef();
 
   const check = bookmarkDB.length === 0;
 
@@ -25,7 +27,15 @@ const Bookmark = ({ user }) => {
       }
     });
   }
-  
+
+
+  useEffect(() => {
+    if(ul.current.scrollHeight !== ul.current.clientHeight){
+      arrow.current.style.display = 'block';
+      scroll(arrow);
+    }
+  }, []);
+
 
   return (
     <>
@@ -33,6 +43,7 @@ const Bookmark = ({ user }) => {
         return (
           <S.List key={bm.post_id} onClick={()=>onMovePage(bm)} title={'게시글 보러가기'}>
             <p>{bm.post_title}</p>
+            <S.Arrow ref={arrow} className="fas fa-arrow-circle-down"></S.Arrow>
           </S.List>
         )
       })}

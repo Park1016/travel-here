@@ -30,7 +30,7 @@ const PostSlider = ({postImages}) => {
     }).catch((error)=>{
       console.error(error)
     })
-    setTimeout(() => setSliderReady(true), 1400)
+    setTimeout(() => setSliderReady(true), 700);
   },[])
 
   const onMouseDown = () => {

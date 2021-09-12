@@ -29,6 +29,12 @@ const Mypage = ({ user }) => {
 
   const [uid, setUid] = useState('');
 
+  let [arrow, setArrow] = useState('');
+
+  const postUl = useRef();
+  const commentUl = useRef();
+  const bookmarkUl = useRef();
+
   const auth = firebase.auth();
 
   const dispatch = useDispatch();
@@ -125,10 +131,16 @@ const Mypage = ({ user }) => {
         .catch((error) => {
           console.log(error);
         });
-    } else {
-      return;
     }
   };
+
+  const scroll = (arrow) => {
+    setArrow(arrow.current);
+  };
+
+  const onScroll = () => {
+    arrow.style.display = 'none';
+  }
 
   useEffect(() => {}, [isNavOpened]);
 
@@ -276,7 +288,7 @@ const Mypage = ({ user }) => {
         )}
         {post && (
           <S.Content check={check}>
-            <ul>
+            <ul ref={postUl} onScroll={onScroll}>
               <li>
                 내가 쓴 글
                 <i
@@ -285,13 +297,13 @@ const Mypage = ({ user }) => {
                   title={'뒤로가기'}
                 ></i>
               </li>
-              <Post user={user} />
+              <Post user={user} ul={postUl} scroll={scroll}/>
             </ul>
           </S.Content>
         )}
         {comment && (
           <S.Content check={check}>
-            <ul>
+            <ul ref={commentUl} onScroll={onScroll}>
               <li>
                 내가 쓴 댓글
                 <i
@@ -300,13 +312,13 @@ const Mypage = ({ user }) => {
                   title={'뒤로가기'}
                 ></i>
               </li>
-              <Comment user={user} />
+              <Comment user={user} ul={commentUl} scroll={scroll}/>
             </ul>
           </S.Content>
         )}
         {bookmark && (
           <S.Content check={check}>
-            <ul>
+            <ul ref={bookmarkUl} onScroll={onScroll}>
               <li>
                 찜
                 <i
@@ -315,7 +327,7 @@ const Mypage = ({ user }) => {
                   title={'뒤로가기'}
                 ></i>
               </li>
-              <Bookmark user={user} />
+              <Bookmark user={user} ul={bookmarkUl} scroll={scroll}/>
             </ul>
           </S.Content>
         )}
@@ -331,7 +343,7 @@ const Mypage = ({ user }) => {
                   user={user}
                 ></i>
               </li>
-              <Password onDelayClose={onDelayClose}/>
+              <Password onDelayClose={onDelayClose} />
             </ul>
           </S.Content>
         )}

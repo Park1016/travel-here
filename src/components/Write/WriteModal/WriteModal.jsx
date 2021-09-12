@@ -150,17 +150,25 @@ export default function WriteModal({ visible, isVisible, postData }) {
     closeModal();
   };
 
+  const close = () => {
+    setPost("");
+    setTitle("");
+    setRegion("");
+    setAttachment([]);
+    isVisible();
+  }
+
   //창 닫기
   const closeModal = () => {
+    if(!title && !post){
+      close();
+      return;
+    }
     const ok = window.confirm(
       "창을 닫으면 내용이 초기화가 됩니다. 창을 닫으시겠습니까?"
     );
     if (ok) {
-      setPost("");
-      setTitle("");
-      setRegion("");
-      setAttachment([]);
-      isVisible();
+      close();
     }
   };
 
