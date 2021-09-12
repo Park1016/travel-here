@@ -1,5 +1,5 @@
 // react
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // style
 import GlobalStyle from "styles/GlobalStyle";
@@ -7,7 +7,7 @@ import Header from "components/Header/Header";
 import { Background, Content } from "styles/Background";
 
 // router
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
 import CategoryList from "pages/CategoryList";
 import Board from "pages/Board/Board";
 import Home from "pages/Home";
@@ -61,6 +61,8 @@ function App() {
               <Route exact path="/categorylist" component={CategoryList} />
               <Route path="/categorylist/:region" component={Board} />
               <Route component={NotFound} />
+              <Route path="/404" component={NotFound} />
+              <Redirect path="*" to="/" />
             </Switch>
           ) : (
             // 로그인 후
@@ -70,6 +72,8 @@ function App() {
               <Route path="/categorylist/:region" component={Board} />
               <Route exact path="/mypage" component={MyPage} />
               <Route component={NotFound} />
+              <Route path="/404" component={NotFound} />
+              <Redirect path="*" to="/" />
             </Switch>
           )}
         </Content>
