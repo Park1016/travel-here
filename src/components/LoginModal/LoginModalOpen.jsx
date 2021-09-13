@@ -4,7 +4,9 @@ import LoginHeader from 'components/LoginModal/header/LoginHeader';
 import AuthService from 'auth_service';
 import firebaseService from 'firebase';
 import NavLinks from 'components/NavLinks/NavLinks';
+import { closeNav } from 'store/modules/nav';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function LoginModalOpen() {
   const authService = new AuthService();
@@ -15,6 +17,8 @@ function LoginModalOpen() {
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const goToPassword = () => {
     let path = '/LoginHelp';
@@ -105,6 +109,7 @@ function LoginModalOpen() {
 
   useEffect(() => {
     authListener();
+    dispatch(closeNav());
   }, []);
 
   return (

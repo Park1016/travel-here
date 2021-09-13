@@ -142,7 +142,7 @@ const Header = styled.header`
     padding-right: 0;
   }
   .container .container-form {
-    overflow: hidden;
+    overflow: visible;
     position: absolute;
     left: 30px;
     top: -30px;
@@ -222,7 +222,7 @@ const Header = styled.header`
   }
 `;
 
-const Btn = styled.button`
+const btn = css`
   position: relative;
   width: 7.5rem;
   margin-top: 0.7rem;
@@ -233,10 +233,14 @@ const Btn = styled.button`
   text-align: center;
   margin: 0 auto;
   color: ${white};
-  background-color: ${pink};
   transition: all 0.5s;
+`;
+
+const Btn = styled.button`
+  ${btn};
+  background: ${pink};
   ${(props) => {
-    if (props.email || props.pw) {
+    if (props.pw) {
       return css`
         margin-top: 0.7rem;
       `;
@@ -246,6 +250,12 @@ const Btn = styled.button`
       `;
     }
   }} 
+`;
+
+const Btn2 = styled.button`
+  ${btn};
+  margin-top: 2rem;
+  background: #1DA1F2;
 `;
 
 const Box = styled.div`
@@ -275,22 +285,64 @@ const Box = styled.div`
   }
 `;
 
-const Error1 = styled.p`
+const error = css`
   position: absolute;
-  top: 0;
-  background: rgb(0,0,0,0.5);
-`;
-
-const Error2 = styled.p`
-  position: absolute;
-  top: 1rem;
-  background: gray;
+  top: 0rem;
+  background: white;
+  border: 3px solid ${pink};
   margin: 0 10%;
   width: 80%;
   border-radius: 10px;
-  padding: 0.5rem 0.2rem;
-  color: white;
+  padding: 0.5rem;
   z-index: 10;
+  div {
+    position: absolute;
+    top:0;
+    /* left:0;
+    transform: translate(-0.5rem, 1.2rem) rotate(45deg); */
+    width: 0.7rem;
+    height: 0.7rem;
+    background: white;
+    border-bottom: 3px solid ${pink};
+    border-left: 3px solid ${pink};
+    z-index: 0;
+  } 
 `;
 
-export { Header, Btn, Box, Error1, Error2 };
+const Error1 = styled.p`
+  ${error};
+  transform: translate(16rem, 4.6rem);
+  div {
+    left:0;
+    transform: translate(-0.5rem, 1.2rem) rotate(45deg);
+  }
+`;
+
+const Error2 = styled.p`
+  ${error};
+  transform: translate(16rem, 8rem);
+  div {
+    left:0;
+    transform: translate(-0.5rem, 1.2rem) rotate(45deg);
+  }
+`;
+
+const Error3 = styled.p`
+  ${error};
+  transform: translate(-16rem, 4.6rem);
+  div {
+    right:0;
+    transform: translate(0.5rem, 1.2rem) rotate(225deg);
+  }
+`;
+
+const Error4 = styled.p`
+  ${error};
+  transform: translate(-16rem, 8rem);
+  div {
+    right:0;
+    transform: translate(0.5rem, 1.2rem) rotate(225deg);
+  }
+`;
+
+export { Header, Btn, Btn2, Box, Error1, Error2, Error3, Error4 };
