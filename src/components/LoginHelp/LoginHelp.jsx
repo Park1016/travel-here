@@ -44,11 +44,13 @@ function LoginHelp() {
       <S.LoginBg />
       <S.Logincontainer>
         <S.Header>
-          <ul>
+          <ul> 
             <li>
               <h1>비밀번호 재설정</h1>
             </li>
-
+            <li>
+              <i className="fas fa-key"></i>
+            </li>
             <li>
               <input
                 className="inputEmail"
@@ -56,12 +58,12 @@ function LoginHelp() {
                 value={email}
                 autoFocus
                 required
-                placeholder="Email Address"
+                placeholder="이메일 주소를 입력하세요"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <p className="errorMsg">{emailError}</p>
               <button onClick={sendPasswordReset} className="sendEmailBtn">
-                이메일로 받기
+                이메일로 비밀번호 받기
               </button>
             </li>
           </ul>

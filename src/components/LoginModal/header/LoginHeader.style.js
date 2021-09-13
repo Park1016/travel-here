@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const white = "#fff";
 const pink = "#ff73b3";
@@ -14,7 +14,7 @@ const Header = styled.header`
 
   .table-cell {
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: top;
     transition: all 0.5s;
     text-align: center;
   }
@@ -59,7 +59,7 @@ const Header = styled.header`
   .container .container-forms {
     position: relative;
   }
-  .container .btn {
+  /* .container .btn {
     cursor: pointer;
     text-align: center;
     margin: 0 auto;
@@ -68,7 +68,7 @@ const Header = styled.header`
     background-color: ${pink};
     opacity: 1;
     transition: all 0.5s;
-  }
+  } */
 
   .container .btn:hover {
     opacity: 0.7;
@@ -82,6 +82,26 @@ const Header = styled.header`
     display: block;
     width: 220px;
     transition: all 0.3s;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+  }
+  .container input:nth-child(1) {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+  }
+  /* .container p {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    position: absolute;
+    top: 0;
+  } */
+  .container p:nth-child(1) {
+
+  }
+  .container p:nth-child(2) {
+  
   }
   .container .container-forms .container-info {
     text-align: left;
@@ -98,15 +118,18 @@ const Header = styled.header`
     opacity: 1;
     transition: all 0.3s;
   }
-  .container .container-forms .container-info .info-item p {
+  /* .container .container-forms .container-info .info-item p {
     font-size: 20px;
     margin: 20px;
-  }
-  .container .container-forms .container-info .info-item .btn {
+  } */
+  /* .container .container-forms .container-info .info-item p:nth-child(1) {
+    margin: 7.5rem auto 1rem auto;
+  } */
+  /* .container .container-forms .container-info .info-item .btn {
     background-color: transparent;
     border: 1px solid ${white};
     padding: 12px 6px;
-  }
+  } */
   .container .container-forms .container-info .info-item .table-cell {
     padding-right: 35px;
   }
@@ -139,21 +162,26 @@ const Header = styled.header`
     opacity: 0;
     transition: all 0.5s;
   }
-  .container .container-form .btn {
+  /* .container .container-form .btn {
     position: relative;
-    box-shadow: 0 0 10px 1px ${pink};
-    margin-top: 13px;
-    width: 70%;
-    border-radius: 12px;
-  }
+    width: 40%;
+    margin-top: 0.7rem;
+    border: none;
+    border-radius: 10px;
+  } */
   .container .container-form .findPassword {
     position: relative;
-    cursor: pointer;
-    text-align: end;
-    background-color: transparent;
-    font-size: 10px;
-    width: 70%;
+    width: 7.5rem;
     border: none;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    background: #aba9a9;
+    color: white;
+    :hover {
+      cursor: pointer;
+      background: #bab8b8;
+    }
   }
   .container .form-item {
     position: absolute;
@@ -194,4 +222,75 @@ const Header = styled.header`
   }
 `;
 
-export { Header };
+const Btn = styled.button`
+  position: relative;
+  width: 7.5rem;
+  margin-top: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  color: ${white};
+  background-color: ${pink};
+  transition: all 0.5s;
+  ${(props) => {
+    if (props.email || props.pw) {
+      return css`
+        margin-top: 0.7rem;
+      `;
+    } else {
+      return css`
+        margin-top: 2rem;
+      `;
+    }
+  }} 
+`;
+
+const Box = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 1.2rem;
+    margin: 0.7rem 0;
+  }
+  button {
+    margin: 0.7rem 0;
+    /* border: 1px solid white; */
+    border: none;
+    outline: none;
+    color: #9297E0;
+    font-size: 1rem;
+    font-weight: bold;
+    background: rgb(255,255,255,0.7);
+    /* border-radius: 10px; */
+    :hover {
+      cursor: pointer;
+    }
+  }
+`;
+
+const Error1 = styled.p`
+  position: absolute;
+  top: 0;
+  background: rgb(0,0,0,0.5);
+`;
+
+const Error2 = styled.p`
+  position: absolute;
+  top: 1rem;
+  background: gray;
+  margin: 0 10%;
+  width: 80%;
+  border-radius: 10px;
+  padding: 0.5rem 0.2rem;
+  color: white;
+  z-index: 10;
+`;
+
+export { Header, Btn, Box, Error1, Error2 };

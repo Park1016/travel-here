@@ -65,6 +65,7 @@ const Title = styled.div`
   background: rgb(255,255,255,0.2);
   border-radius: 10px;
   font-size: 0.9rem;
+  caret-color: transparent;
 `;
 
 export { Title, Button };

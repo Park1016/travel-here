@@ -34,22 +34,22 @@ function LoginHeader(props) {
               <section className="container-info">
                 <div className="info-item">
                   <div className="table">
-                    <div className="table-cell">
+                    <S.Box>
                       <p>Have an account?</p>
                       <button onClick={toggleClass} className="btn">
                         Log in
                       </button>
-                    </div>
+                    </S.Box>
                   </div>
                 </div>
                 <div className="info-item">
                   <div className="table">
-                    <div className="table-cell">
+                    <S.Box>
                       <p>Don't have an account?</p>
                       <button onClick={toggleClass} className="btn">
                         Sign up
                       </button>
-                    </div>
+                    </S.Box>
                   </div>
                 </div>
               </section>
@@ -67,8 +67,7 @@ function LoginHeader(props) {
                         placeholder="Email Address"
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                      <p className="errorMsg">{emailError}</p>
-
+                      <S.Error1 className="errorMsg">{emailError}</S.Error1>
                       <input
                         className="inputPw"
                         type="password"
@@ -77,13 +76,13 @@ function LoginHeader(props) {
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                       />
-                      <p className="errorMsg">{passwordError}</p>
-                      <button onClick={handleLogin} className="btn">
+                      <S.Error2 className="errorMsg">{passwordError}</S.Error2>
+                      <S.Btn onClick={handleLogin} className="btn" email={emailError} pw={passwordError}>
                         Log in
-                      </button>
-                      <button className="findPassword" onClick={goToPassword}>
+                      </S.Btn><br />
+                      {passwordError && <button className="findPassword" onClick={goToPassword}>
                         비밀번호 재설정
-                      </button>
+                      </button>}
                     </div>
                   </div>
                 </div>
@@ -100,7 +99,7 @@ function LoginHeader(props) {
                         placeholder="Email Address"
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                      <p className="errorMsg">{emailError}</p>
+                      <S.Error1 className="errorMsg">{emailError}</S.Error1>
                       <input
                         className="inputPw"
                         type="password"
@@ -109,13 +108,10 @@ function LoginHeader(props) {
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                       />
-                      <p className="errorMsg">{passwordError}</p>
-                      <button onClick={handleSignUP} className="btn">
+                      <S.Error2 className="errorMsg">{passwordError}</S.Error2>
+                      <S.Btn onClick={handleSignUP} className="btn">
                         Sign up
-                      </button>
-                      <button className="findPassword" onClick={goToPassword}>
-                        비밀번호 재설정
-                      </button>
+                      </S.Btn>
                     </div>
                   </div>
                 </div>

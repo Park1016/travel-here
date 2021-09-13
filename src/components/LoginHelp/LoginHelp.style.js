@@ -12,20 +12,24 @@ const LoginBg = styled.div`
 `;
 
 const Logincontainer = styled.div`
-  width: 480px;
-  height: 400px;
-  background-color: #fffaf0;
+  width: 30rem;
+  height: 25rem;
+  background: white;
   position: relative;
-  margin: 50px auto;
+  margin: auto;
+  transform: translateY(7rem);
   padding: 20px;
   z-index: 100;
   padding: 60px 68px 40px 68px;
-  @media screen and (max-width: 740px) {
+  border-radius: 10px;
+  /* border: 2px solid #9980fa; */
+  /* box-shadow: 0 0 5px white; */
+  /* @media screen and (max-width: 740px) {
     width: 100vw;
     margin: 0;
     height: 100vh;
     padding: 1em;
-  }
+  } */
 `;
 
 const Header = styled.header`
@@ -35,32 +39,39 @@ const Header = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 40px 0;
+    /* margin: 40px 0; */
     li {
       width: 100%;
+      i {
+        font-size: 5rem;
+        transform: translateY(1rem);
+        margin-bottom: 3rem;
+        color: orange;
+      }
       h1 {
-        font-size: 34px;
+        font-size: 2rem;
         transform: translateY(-100%);
       }
       .inputEmail {
         display: block;
         width: 100%;
         padding: 8px;
+        margin: 1rem 0 1.5rem 0;
         height: 2rem;
         border-radius: 12px;
         outline: none;
+        border: 1px solid lightgray;
       }
       .sendEmailBtn {
         border: none;
-        width: 100%;
-        height: 3rem;
+        width: 80%;
+        height: 2.5rem;
         border-radius: 12px;
         color: #fff;
         background-color: ${pink};
         cursor: pointer;
         font-size: 18px;
         margin-top: 1rem;
-        box-shadow: 0 0 10px 1px ${pink};
       }
     }
   }
@@ -72,7 +83,9 @@ const BackBtn = styled.button`
   background-color: transparent;
   cursor: pointer;
   font-size: 24px;
-  top: 1em;
+  top: 1.3em;
   left: 1em;
 `;
+
+
 export { Header, Logincontainer, LoginBg, BackBtn };

@@ -5,9 +5,9 @@ const Footer = styled.footer`
   ul {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     transform: translateY(300px);
-
+    margin-top: 0.5rem;
     li {
       button {
         display: flex;
@@ -18,11 +18,23 @@ const Footer = styled.footer`
         background-color: transparent;
         cursor: pointer;
         width: 100%;
-        span {
-          font-size: 32px;
+        span:nth-child(1) {
+          width: 3rem;
+          height: 3rem;
+          margin: 0 0.5rem;
+          border-radius: 50%;
+          box-shadow: 0 0 5px lightgray;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          :hover {
+            transform: translateY(0.05rem);
+          }
         }
-        p {
-          display: inline-block;
+        span:nth-child(2) {
+          /* font-size: 0.9rem; */
+          display: none;
         }
       }
     }
@@ -34,8 +46,25 @@ const Footer = styled.footer`
     cursor: pointer;
     font-size: 24px;
     top: 1em;
-    left: 1em;
+    right: 1em;
   }
 `;
 
-export { Footer };
+const Google = styled.img`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+`;
+
+const Git = styled.i`
+  font-size: 2rem;
+  /* margin-bottom: 0.1rem; */
+`;
+
+const Twit = styled.i`
+  font-size: 2.2rem;
+  /* margin-bottom: 0.1rem; */
+  color: #1DA1F2;
+`;
+
+export { Footer, Google, Git, Twit };

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import google from "assets/images/google.png";
 import * as S from './LoginFooter.style';
 
 function LoginFooter({ authService }) {
@@ -40,33 +41,33 @@ function LoginFooter({ authService }) {
           <li>
             <button onClick={onLogin}>
               <span>
-                <i className="fab fa-google"></i>
+                <S.Google src={google} alt="구글"></S.Google>
               </span>
-              <p>Google</p>
+              <span>Google</span>
             </button>
           </li>
           {/* Github login button*/}
           <li>
             <button onClick={onLogin}>
               <span>
-                <i className="fab fa-github"></i>
+                <S.Git className="fab fa-github"></S.Git>
               </span>
-              <p>Github</p>
+              <span>Github</span>
             </button>
           </li>
           {/* Twitter login button */}
           <li>
             <button onClick={onLogin}>
               <span>
-                <i className="fab fa-twitter"></i>
+                <S.Twit className="fab fa-twitter"></S.Twit>
               </span>
-              <p>Twitter</p>
+              <span>Twitter</span>
             </button>
           </li>
         </ul>
         {/* Home return button */}
         <button className="closeBtn" onClick={routeChange}>
-          <i className="fas fa-arrow-left"></i>
+          <i className="fas fa-times-circle"></i>
         </button>
       </S.Footer>
     </>
