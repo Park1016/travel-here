@@ -298,7 +298,7 @@ const Content = styled.div`
       font-size: 1.2rem;
       width: 15rem;
       padding-bottom: 1.5rem;
-      background: #001740;
+      background: #011942;
       position: fixed;
       top: 2rem;
       i {

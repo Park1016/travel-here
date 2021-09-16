@@ -27,7 +27,7 @@ const Password = ({ onDelayClose }) => {
       .updatePassword(newPassword)
       .then(() => {
         setPassword('');
-        alert('패스워드가 변경 되었습니다.');
+        alert('비밀번호가 변경 되었습니다.');
       })
       .then(() => {
         onDelayClose();
@@ -60,7 +60,7 @@ const Password = ({ onDelayClose }) => {
       .then(function () {
         user.updatePassword(password).then(function () {
           setPassword('');
-          alert('재인증 되었습니다!');
+          alert('인증 되었습니다!');
           setChange(!change);
         });
       })
@@ -107,7 +107,7 @@ const Password = ({ onDelayClose }) => {
             />
             <p className="errorMsg">{passwordError}</p>
             <button className="chageBtn" onClick={reAuth}>
-              재인증
+              인증
             </button>
           </>
         )}

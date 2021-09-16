@@ -15,6 +15,7 @@ const List = styled.li`
 
 const Null = styled.p`
   ${frame};
+  transform: translateY(2.8rem);
   cursor: auto;
 `;
 
