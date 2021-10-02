@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Header = styled.div`
   width: 100vw;
   padding-bottom: 1rem;
-  `;
+  caret-color: transparent;
+`;
 
 
 const Container = styled.div`

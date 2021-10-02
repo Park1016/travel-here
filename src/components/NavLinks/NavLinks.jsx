@@ -14,7 +14,7 @@ const onLogout = () => {
   authService.logout();
 };
 
-const activeStyle = { color: 'red' };
+const activeStyle = { color: '#F5BF72' };
 
 export default function NavLinks({ isLoggedIn, isPc, isNavOpened, navToggle }) {
   const auth = firebase.auth();

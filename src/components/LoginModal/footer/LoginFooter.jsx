@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import google from "assets/images/google.png";
 import * as S from './LoginFooter.style';
+import * as H from '../header/LoginHeader.style';
 
-function LoginFooter({ authService }) {
+function LoginFooter({ authService, btn, log, setBtn, sign }) {
+  const [emailError, setEmailError] = useState('');
   const history = useHistory();
   // 로그아웃 페이지 전환
   const goToLogin = (userId) => {
@@ -24,6 +26,16 @@ function LoginFooter({ authService }) {
       .login(event.currentTarget.textContent)
       .then((data) => {
         goToLogin(data.user.uid);
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case 'auth/account-exists-with-different-credential':
+            setEmailError(err.message);
+            setBtn(false);
+            break;
+          default:
+            return;
+        }
       });
   };
 
@@ -31,10 +43,18 @@ function LoginFooter({ authService }) {
     authService.onAuthChange((user) => {
       user && goToLogin(user.uid);
     });
-  });
+  }, []);
+
+  useEffect(() => {
+    if(log){
+      setEmailError('');
+    }
+  }, [log]);
+
 
   return (
     <>
+      {(!btn && emailError && sign) && <H.Error5 className="errorMsg">{emailError}<div></div></H.Error5>}
       <S.Footer>
         <ul>
           {/* Google login button */}

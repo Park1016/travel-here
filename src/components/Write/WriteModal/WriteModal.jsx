@@ -253,7 +253,7 @@ export default function WriteModal({ visible, isVisible, postData }) {
                   <option value="antarctica">Antarctica</option>
                 </select>
                 <S.ImgUpload>
-                  <label for="inputFile" tabIndex="4">
+                  <label htmlFor="inputFile" tabIndex="4">
                     사진 선택
                   </label>
                   <p>※ ctrl로 사진을 여러장 선택하실 수 있습니다.</p>

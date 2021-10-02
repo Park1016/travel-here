@@ -13,6 +13,7 @@ const Container = styled.div`
   cursor: pointer;
   display: none;
   z-index: 9;
+  caret-color: transparent;
   @media screen and (max-width: 1024px) {
     display: flex;
   }

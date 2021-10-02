@@ -5,7 +5,7 @@ const pink = "#ff73b3";
 
 const Container = styled.section`
   width: 100vw;
-  height: 90vh;
+  height: calc(100vh - 55px);
   ${flex};
   flex-direction: row;
   caret-color: transparent;

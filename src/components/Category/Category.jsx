@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoryThunk } from "../../store/modules/category";
 import Slider from "react-slick";
+import { v4 as uuid } from "uuid";
 import { useMediaQuery } from "react-responsive";
 import * as S from "./Category.style";
 import CategorySkeleton from "./CategorySkeleton";
@@ -36,8 +37,8 @@ export default function Category() {
 
   return (
     <Slider {...settings}>
-      {category.map((cate, index) => (
-        <S.CategoryBox key={index} isPc={isPc}>
+      {category.map((cate) => (
+        <S.CategoryBox key={uuid()} isPc={isPc}>
           <S.LinkStyle to={`/categorylist/${cate.region}`}>
             <h3>{cate.region.replace("_", " ").toUpperCase()}</h3>
             <div>

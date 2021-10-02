@@ -22,14 +22,9 @@ const Logincontainer = styled.div`
   z-index: 100;
   padding: 60px 68px 40px 68px;
   border-radius: 10px;
-  /* border: 2px solid #9980fa; */
-  /* box-shadow: 0 0 5px white; */
-  /* @media screen and (max-width: 740px) {
-    width: 100vw;
-    margin: 0;
-    height: 100vh;
-    padding: 1em;
-  } */
+  @media screen and (max-width: 500px) {
+    width: 20rem;
+  }
 `;
 
 const Header = styled.header`
@@ -39,7 +34,6 @@ const Header = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin: 40px 0; */
     li {
       width: 100%;
       i {
@@ -51,6 +45,11 @@ const Header = styled.header`
       h1 {
         font-size: 2rem;
         transform: translateY(-100%);
+        @media screen and (max-width: 500px) {
+          font-size: 1.5rem;
+          font-weight: bold;
+          transform: translateY(-120%);
+        }
       }
       .inputEmail {
         display: block;
@@ -72,6 +71,13 @@ const Header = styled.header`
         cursor: pointer;
         font-size: 18px;
         margin-top: 1rem;
+        :hover {
+          transform: scale(1.01);
+        }
+        @media screen and (max-width: 500px) {
+          width: 100%;
+          font-size: 0.9rem;
+        }
       }
     }
   }

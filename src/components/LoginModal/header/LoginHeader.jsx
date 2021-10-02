@@ -21,34 +21,51 @@ function LoginHeader(props) {
     toggleClass,
     goToPassword,
     getUserProfile,
+    clearErrors,
+    clearInputs,
   } = props;
 
-  const [log, setLog] = useState(false);
+  const [log, setLog] = useState(true);
   const [sign, setSign] = useState(false);
+  const [btn, setBtn] = useState(false);
 
   const loginForm = useRef();
   const signUpForm = useRef();
 
+  const loginBtn = useRef();
+  const signUpBtn = useRef();
+
   const onLog = () => {
     handleLogin();
-    setLog(true);
-    setSign(false);
   }
 
   const onSign = () => {
     handleSignUP();
-    setSign(true);
-    setLog(false);
+    setBtn(true);
   }
 
   const onLoginForm = () => {
+    if(log){
+      return;
+    }
+    clearErrors();
+    clearInputs();
     toggleClass();
+    setLog(true);
+    setSign(false);
     signUpForm.current.style.display = 'none';
     loginForm.current.style.display = 'block';
   }
   
   const onSignUpForm = () => {
+    if(sign){
+      return;
+    }
+    clearErrors();
+    clearInputs();
     toggleClass();
+    setSign(true);
+    setLog(false);
     loginForm.current.style.display = 'none';
     signUpForm.current.style.display = 'block';
   }
@@ -67,9 +84,9 @@ function LoginHeader(props) {
                   <div className="table">
                     <S.Box>
                       <p>Have an account?</p>
-                      <button onClick={onLoginForm} className="btn">
+                      <S.BoxBtn1 ref={loginBtn} onClick={onLoginForm} className="btn" log={log}>
                         Log in
-                      </button>
+                      </S.BoxBtn1>
                     </S.Box>
                   </div>
                 </div>
@@ -77,9 +94,9 @@ function LoginHeader(props) {
                   <div className="table">
                     <S.Box>
                       <p>Don't have an account?</p>
-                      <button onClick={onSignUpForm} className="btn">
+                      <S.BoxBtn2 ref={signUpBtn} onClick={onSignUpForm} className="btn" sign={sign}>
                         Sign up
-                      </button>
+                      </S.BoxBtn2>
                     </S.Box>
                   </div>
                 </div>
@@ -130,7 +147,7 @@ function LoginHeader(props) {
                         placeholder="Email Address"
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                      {(emailError && sign) && <S.Error3 className="errorMsg">{emailError}<div></div></S.Error3>}
+                      {(emailError && sign && btn) && <S.Error3 className="errorMsg">{emailError}<div></div></S.Error3>}
                       <input
                         className="inputPw"
                         type="password"
@@ -139,14 +156,14 @@ function LoginHeader(props) {
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                       />
-                      {(passwordError && sign) && <S.Error4 className="errorMsg">{passwordError}<div></div></S.Error4>}
+                      {(passwordError && sign && btn) && <S.Error4 className="errorMsg">{passwordError}<div></div></S.Error4>}
                       <S.Btn2 onClick={onSign} className="btn">
                         Sign up
                       </S.Btn2>
                     </div>
                   </div>
                 </div>
-                <LoginFooter authService={authService} />
+                <LoginFooter authService={authService} btn={btn} setBtn={setBtn} log={log} sign={sign} />
               </section>
             </article>
           </main>

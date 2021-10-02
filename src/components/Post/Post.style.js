@@ -122,7 +122,7 @@ const Header = styled.li`
       text-overflow: ellipsis;
       @media screen and (max-width: 500px) {
         font-size: 1rem;
-        max-width: 10rem;
+        max-width: 7.5rem;
       }
       @media screen and (max-width: 370px) {
         font-size: 1rem;
@@ -140,6 +140,10 @@ const Header = styled.li`
       border-radius: 10px;
       margin: 0 0.5rem;
       line-height: 1.2;
+      @media screen and (max-width: 500px) {
+        font-size: 0.6rem;
+        line-height: 1.7;
+      }
     }
     p:nth-child(3) {
       font-size: 0.7rem;
@@ -147,6 +151,10 @@ const Header = styled.li`
       background-color: #fce3fc;
       border-radius: 10px;
       line-height: 1.5;
+      @media screen and (max-width: 500px) {
+        font-size: 0.6rem;
+        line-height: 1.7;
+      }
     }
     i {
       margin-left: 1rem;
@@ -327,8 +335,16 @@ const Bookmark = styled.i`
 
 const Img = styled.img`
   width: 30rem;
-  height: 45rem;
+  height: 40rem;
   border-radius: 20px;
+  @media screen and (max-width: 510px) {
+    width: 25rem;
+    height: 35rem;
+  }
+  @media screen and (max-width: 420px) {
+    width: 20rem;
+    height: 30rem;
+  }
 `;
 
 const show = keyframes`
@@ -430,6 +446,8 @@ const arrow = keyframes`
 
 const Arrow = styled.i`
   font-size: 3rem;
+  width: 2.95rem;
+  height: 2.95rem;
   color: #1A46A0;
   background-color: white;
   position: absolute;

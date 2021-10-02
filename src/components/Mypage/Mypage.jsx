@@ -242,26 +242,17 @@ const Mypage = ({ user }) => {
         {open && (
           <>
             <S.Logincontainer>
-              <S.Header>
                 <ul>
-                  <li>
-                    <h1>탈퇴하시겠습니까?</h1>
-                  </li>
+                  <li>탈퇴하시겠습니까?</li>
                   <li>
                     <button className="modal fade" onClick={userDel}>
                       예
                     </button>
-                  </li>
-                  <li>
-                    <button
-                      className="modal fade"
-                      onClick={() => setOpen(!open)}
-                    >
+                    <button className="modal fade" onClick={() => setOpen(!open)}>
                       아니오
                     </button>
                   </li>
                 </ul>
-              </S.Header>
             </S.Logincontainer>
           </>
         )}

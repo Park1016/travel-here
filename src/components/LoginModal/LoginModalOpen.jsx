@@ -16,6 +16,7 @@ function LoginModalOpen() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
+  
   const history = useHistory();
 
   const dispatch = useDispatch();
@@ -137,6 +138,8 @@ function LoginModalOpen() {
               toggleClass={toggleClass}
               goToPassword={goToPassword}
               getUserProfile={getUserProfile}
+              clearErrors={clearErrors}
+              clearInputs={clearInputs}
             />
           </S.Logincontainer>
         </>

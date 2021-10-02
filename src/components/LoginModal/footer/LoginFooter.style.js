@@ -47,6 +47,9 @@ const Footer = styled.footer`
     font-size: 24px;
     top: 1em;
     right: 1em;
+    @media screen and (max-width: 620px) {
+      transform: translate(1.6rem, -1.4rem);
+    }
   }
 `;
 

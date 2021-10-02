@@ -148,7 +148,7 @@ const Info = ({ uid, user, userDB, change, setChange }) => {
           {img && <p>
             <S.Form onSubmit={onSubmit} img={userDB.user_image}>
               <div>
-                <label for="inputFile">사진 변경</label>
+                <label htmlFor="inputFile">사진 변경</label>
                 <input
                   id="inputFile"
                   accept="image/*"

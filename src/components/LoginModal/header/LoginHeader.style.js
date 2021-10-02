@@ -5,7 +5,13 @@ const pink = "#ff73b3";
 
 
 const Header = styled.header`
+  width: 100%;
   height: 100%;
+  @media screen and (max-width: 620px) {
+      /* display: flex;
+      align-items: center;
+      justify-content: center; */
+  }
   .table {
     display: table;
     width: 100%;
@@ -28,6 +34,11 @@ const Header = styled.header`
     top: 50%;
     margin-top: -160px;
     transition: all 0.5s;
+    @media screen and (max-width: 620px) {
+      width: 0;
+      margin: 0;
+      margin-top: -160px;
+    }
   }
   .container .box {
     position: absolute;
@@ -72,6 +83,9 @@ const Header = styled.header`
 
   .container .btn:hover {
     opacity: 0.7;
+    @media screen and (max-width: 620px) {
+      opacity: 1;
+    }
   }
   .container .btn,
   .container input {
@@ -134,10 +148,10 @@ const Header = styled.header`
     padding-right: 35px;
   }
   .container
-    .container-forms
-    .container-info
-    .info-item:nth-child(2)
-    .table-cell {
+  .container-forms
+  .container-info
+  .info-item:nth-child(2)
+  .table-cell {
     padding-left: 35px;
     padding-right: 0;
   }
@@ -151,6 +165,55 @@ const Header = styled.header`
     background-color: ${white};
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
     transition: all 0.5s;
+    @media screen and (max-width: 620px) {
+      margin-left: calc(310px - 152.5px);
+      left: 50%;
+    }
+    @media screen and (max-width: 600px) {
+      margin-left: calc(300px - 152.5px);
+    }
+    @media screen and (max-width: 580px) {
+      margin-left: calc(290px - 152.5px);
+    }
+    @media screen and (max-width: 560px) {
+      margin-left: calc(280px - 152.5px);
+    }
+    @media screen and (max-width: 540px) {
+      margin-left: calc(270px - 152.5px);
+    }
+    @media screen and (max-width: 520px) {
+      margin-left: calc(260px - 152.5px);
+    }
+    @media screen and (max-width: 500px) {
+      margin-left: calc(250px - 152.5px);
+    }
+    @media screen and (max-width: 480px) {
+      margin-left: calc(240px - 152.5px);
+    }
+    @media screen and (max-width: 460px) {
+      margin-left: calc(230px - 152.5px);
+    }
+    @media screen and (max-width: 440px) {
+      margin-left: calc(220px - 152.5px);
+    }
+    @media screen and (max-width: 420px) {
+      margin-left: calc(210px - 152.5px);
+    }
+    @media screen and (max-width: 400px) {
+      margin-left: calc(200px - 152.5px);
+    }
+    @media screen and (max-width: 380px) {
+      margin-left: calc(190px - 152.5px);
+    }
+    @media screen and (max-width: 360px) {
+      margin-left: calc(180px - 152.5px);
+    }
+    @media screen and (max-width: 340px) {
+      margin-left: calc(170px - 152.5px);
+    }
+    @media screen and (max-width: 320px) {
+      margin-left: calc(160px - 152.5px);
+    }
   }
   .container .container-form:before {
     content: '✔';
@@ -161,6 +224,9 @@ const Header = styled.header`
     font-size: 130px;
     opacity: 0;
     transition: all 0.5s;
+    @media screen and (max-width: 620px) {
+      display: none;
+    }
   }
   /* .container .container-form .btn {
     position: relative;
@@ -202,6 +268,9 @@ const Header = styled.header`
     left: 180px;
     top: 62px;
     height: 265px;
+    @media screen and (max-width: 620px) {
+      left: 50%;
+    }
   }
   .container.log-in .box:after {
     top: 22px;
@@ -211,6 +280,9 @@ const Header = styled.header`
   }
   .container.log-in .container-form {
     left: 265px;
+    @media screen and (max-width: 620px) {
+      left: 50%;
+    }
   }
   .container.log-in .container-form .form-item.sign-up {
     left: 0;
@@ -265,24 +337,87 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 620px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    transform: translateY(-1.7rem);
+  }
   p {
     font-size: 1.2rem;
     margin: 0.7rem 0;
+    @media screen and (max-width: 620px) {
+      display: none;
+    }
   }
   button {
+    width: 7rem;
+    height: 2.5rem;
     margin: 0.7rem 0;
-    /* border: 1px solid white; */
+    caret-color: transparent;
     border: none;
     outline: none;
-    color: #9297E0;
     font-size: 1rem;
     font-weight: bold;
-    background: rgb(255,255,255,0.7);
-    /* border-radius: 10px; */
     :hover {
       cursor: pointer;
     }
+    @media screen and (max-width: 620px) {
+      position: absolute;
+      margin: 0;
+      top: 0;
+    }
   }
+`;
+
+const BoxBtn1 = styled.button`
+  color: #9297E0;
+  background: rgb(255,255,255,0.7);
+  @media screen and (max-width: 620px) {
+    left: calc(50% - 6.8rem);
+    z-index: 10;
+    /* color: #fff;
+    background: #a19f9f; */
+    transform: translateY(-2.5rem);
+    ${(props) => {
+      if (props.log) {
+        return css`
+          color: #fff;
+          background: #a19f9f;
+        `;
+      } else {
+        return css`
+          color: darkgray;
+          background: #e6e3e3;
+        `;
+      }
+    }} 
+  } 
+`;
+
+const BoxBtn2 = styled.button`
+  color: #9297E0;
+  background: rgb(255,255,255,0.7);
+  @media screen and (max-width: 620px) {
+    left: 50%;
+    /* color: darkgray;
+    background: #e6e3e3; */
+    transform: translateY(-2.5rem);
+    ${(props) => {
+      if (props.sign) {
+        return css`
+          color: #fff;
+          background: #a19f9f;
+        `;
+      } else {
+        return css`
+          color: darkgray;
+          background: #e6e3e3;
+        `;
+      }
+    }} 
+  } 
 `;
 
 const error = css`
@@ -312,37 +447,100 @@ const error = css`
 const Error1 = styled.p`
   ${error};
   transform: translate(16rem, 4.6rem);
+  caret-color: transparent;
   div {
-    left:0;
+    left: 0;
     transform: translate(-0.5rem, 1.2rem) rotate(45deg);
+  }
+  @media screen and (max-width: 620px) {
+    transform: translate(0rem, 1rem);
+    div {
+      /* left: 50%;
+      transform: translateY(2.8rem) rotate(-45deg); */
+      display: none;
+    }
   }
 `;
 
 const Error2 = styled.p`
   ${error};
   transform: translate(16rem, 8rem);
+  caret-color: transparent;
   div {
     left:0;
     transform: translate(-0.5rem, 1.2rem) rotate(45deg);
+  }
+  @media screen and (max-width: 620px) {
+    transform: translate(0rem, 0.3rem);
+    div {
+      display: none;
+    }
   }
 `;
 
 const Error3 = styled.p`
   ${error};
   transform: translate(-16rem, 4.6rem);
+  caret-color: transparent;
   div {
     right:0;
     transform: translate(0.5rem, 1.2rem) rotate(225deg);
+  }
+  @media screen and (max-width: 620px) {
+    transform: translate(0rem, 1rem);
+    div {
+      /* left: 50%;
+      transform: translateY(2.8rem) rotate(-45deg); */
+      display: none;
+    }
   }
 `;
 
 const Error4 = styled.p`
   ${error};
   transform: translate(-16rem, 8rem);
+  caret-color: transparent;
   div {
     right:0;
     transform: translate(0.5rem, 1.2rem) rotate(225deg);
   }
+  @media screen and (max-width: 620px) {
+    transform: translate(0rem, 1rem);
+    div {
+      display: none;
+    }
+  }
 `;
 
-export { Header, Btn, Btn2, Box, Error1, Error2, Error3, Error4 };
+const Error5 = styled.p`
+  ${error};
+  transform: translate(-16rem, 4.6rem);
+  caret-color: transparent;
+  div {
+    right:0;
+    transform: translate(0.5rem, 1.2rem) rotate(225deg);
+  }
+  @media screen and (max-width: 620px) {
+    transform: translate(0rem, 1rem);
+    height: 3.5rem;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    div {
+      /* left: 50%;
+      transform: translateY(2.8rem) rotate(-45deg); */
+      display: none;
+    }
+    :hover {
+      cursor: help;
+      height: auto;
+      display: block;
+    }
+  }
+`;
+
+export { Header, Btn, Btn2, Box,  Error1, Error2, Error3, Error4, Error5, BoxBtn1, BoxBtn2 };

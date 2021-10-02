@@ -5,13 +5,10 @@ const purple = '#D980FA';
 
 const Container = styled.section`
   width: 100vw;
-  height: 90vh;
+  height: calc(100vh - 55px);
   ${flex};
   flex-direction: row;
   caret-color: transparent;
-  @media screen and (min-width: 1024px) {
-    transform: translateY(0);
-  }
 `;
 
 const leftclose = keyframes`
@@ -317,49 +314,52 @@ const Content = styled.div`
   }
 `;
 
-const Header = styled.div`
-  text-align: center;
+const Logincontainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
   ul {
+    width: 20rem;
+    height: 12rem;
+    border-radius: 10px;
+    background: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 40px 0;
-    li {
-      width: 100%;
-      h1 {
-        font-size: 34px;
-        transform: translateY(-100%);
-      }
-      button {
-        border: none;
-        width: 100%;
-        height: 3rem;
-        border-radius: 12px;
-        color: #fff;
-        background-color: #ff73b3;
-        cursor: pointer;
-        font-size: 18px;
-        margin-top: 1rem;
-        box-shadow: 0 0 10px 1px #ff73b3;
-      }
+    justify-content: center;
+    border: 5px solid #ff73b3;
+    li:nth-child(1) {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
-  }
-`;
-const Logincontainer = styled.div`
-  position: absolute;
-  width: 480px;
-  height: 400px;
-  background-color: #fffaf0;
-  margin: 50px auto;
-  padding: 20px;
-  z-index: 100;
-  padding: 60px 68px 40px 68px;
-  @media screen and (max-width: 740px) {
-    width: 100vw;
-    margin: 0;
-    height: 100vh;
-    padding: 1em;
+    button {
+      width: 5rem;
+      height: 2rem;
+      font-weight: bold;
+      color: #fff;
+      background: #ff73b3;
+      border: none;
+      outline: none;
+      margin: 0.2rem;
+      border-radius: 10px;
+    }
+    button:nth-child(2){
+      /* background: #fcc2dd;
+      color: black; */
+      background: darkgray;
+    }
+    button:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+    }
   }
 `;
 
@@ -371,6 +371,5 @@ export {
   ListArea,
   ListAreaUl,
   Title,
-  Header,
   Logincontainer,
 };

@@ -70,9 +70,6 @@ const Post = ({
 
   let history = useHistory();
 
-  // 좋아요 숫자 받아오기
-  let likeNum = useSelector((state) => state.postLike.likeNum);
-
   // 내가 해당 게시글에 좋아요을 했나 안 했나 표시
   let [likePost, setLikePost] = useState(location.state.like.includes(post_id));
 
@@ -234,7 +231,7 @@ const Post = ({
             <span>
               <span>{post_title}</span>
               <p>#{post_region}</p>
-              {update ? <p>조회수 1</p> : (check ? <p>조회수 {location.state.postData.post_view}</p> : <p>조회수 {postData.post_view+1}</p>)}
+              {update ? <p>조회수 1</p> : <p>조회수 {postData.post_view+1}</p>}
             </span>
             <div>
               {userCheck && (
@@ -269,7 +266,7 @@ const Post = ({
               ) : (
                 <i onClick={onLikeToggle} className="far fa-heart"></i>
               )}
-              {update ? <span>0</span> : (check ? <span>{location.state.postData.post_like}</span> : <span>{likeNum}</span>)}
+              {update ? <span>0</span> : <span>{postData.post_like}</span>}
               <p>명</p>이 좋아합니다
             </span>
             {bookmarkPost ? (
