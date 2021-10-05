@@ -101,6 +101,7 @@ const ImgUpload = styled.div`
     margin: 0.7rem 0 0 6rem;
     font-size: 0.8rem;
     color: red;
+    caret-color: transparent;
   }
   input {
     display: none;
@@ -248,6 +249,7 @@ const NamelessIcon = styled.i`
 `;
 const Name = styled.span`
   color: rgba(0, 0, 0, 0.6);
+  caret-color: transparent;
 `;
 
 const CloseModal = styled.i`

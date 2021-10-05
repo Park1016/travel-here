@@ -10,7 +10,7 @@ function LoginFooter({ authService, btn, log, setBtn, sign }) {
   // 로그아웃 페이지 전환
   const goToLogin = (userId) => {
     history.push({
-      pathname: '/',
+      pathname: '/CategoryList',
       state: { id: userId },
     });
   };

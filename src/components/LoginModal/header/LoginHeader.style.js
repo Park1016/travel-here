@@ -310,6 +310,7 @@ const btn = css`
 
 const Btn = styled.button`
   ${btn};
+  caret-color: transparent;
   background: ${pink};
   ${(props) => {
     if (props.pw) {
@@ -326,6 +327,7 @@ const Btn = styled.button`
 
 const Btn2 = styled.button`
   ${btn};
+  caret-color: transparent;
   margin-top: 2rem;
   background: #1DA1F2;
 `;
@@ -337,6 +339,7 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  caret-color: transparent;
   @media screen and (max-width: 620px) {
     position: absolute;
     top: 0;
@@ -360,6 +363,7 @@ const Box = styled.div`
     outline: none;
     font-size: 1rem;
     font-weight: bold;
+    caret-color: transparent;
     :hover {
       cursor: pointer;
     }
@@ -373,6 +377,7 @@ const Box = styled.div`
 
 const BoxBtn1 = styled.button`
   color: #9297E0;
+  caret-color: transparent;
   background: rgb(255,255,255,0.7);
   @media screen and (max-width: 620px) {
     left: calc(50% - 6.8rem);
@@ -398,6 +403,7 @@ const BoxBtn1 = styled.button`
 
 const BoxBtn2 = styled.button`
   color: #9297E0;
+  caret-color: transparent;
   background: rgb(255,255,255,0.7);
   @media screen and (max-width: 620px) {
     left: 50%;

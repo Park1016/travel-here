@@ -46,6 +46,11 @@ function LoginModalOpen() {
     firebaseService
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(
+        setTimeout(()=>{
+          history.push('./CategoryList')
+        }, 1000)
+      )
       .catch((err) => {
         switch (err.code) {
           case 'auth/invalid-email':
@@ -58,8 +63,9 @@ function LoginModalOpen() {
             break;
           default:
             return;
+          }
         }
-      });
+      );
   };
 
   // 회원가입
@@ -68,6 +74,11 @@ function LoginModalOpen() {
     firebaseService
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(
+        setTimeout(()=>{
+          history.push('./CategoryList')
+        }, 1000)
+      )
       .catch((err) => {
         switch (err.code) {
           case 'auth/email-already-in-use':

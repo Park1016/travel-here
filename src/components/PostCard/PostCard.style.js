@@ -9,6 +9,7 @@ const Container = styled.div`
   color : white;
   margin : 0.5rem; 
   padding : 1.6rem 0.6rem;
+  caret-color: transparent;
   z-index : 1;
   :hover {
     cursor: pointer;
