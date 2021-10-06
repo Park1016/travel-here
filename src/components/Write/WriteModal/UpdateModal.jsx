@@ -33,6 +33,8 @@ export default function UpdateModal({
 
   const postRef = useRef();
   const titleRef = useRef();
+  const imgRef = useRef();
+
   const [attachment, setAttachment] = useState([]);
 
   const onChange = (e) => {
@@ -56,6 +58,7 @@ export default function UpdateModal({
       titleRef.current.focus();
     } else if (!region) {
       alert("지역을 선택해 주세요.");
+      imgRef.current.focus();
     } else {
       setLoad(true);
       let attachmentUrl = photo;
@@ -183,6 +186,7 @@ export default function UpdateModal({
             <S.TitleInput
               name="title"
               type="text"
+              tabIndex="1"
               value={title}
               ref={titleRef}
               onChange={onChange}
@@ -191,12 +195,13 @@ export default function UpdateModal({
             <textarea
               name="textarea"
               value={post}
+              tabIndex="2"
               ref={postRef}
               onChange={onChange}
               placeholder="내용을 입력해주세요."
               rows="10"
             />
-            <select name="region" value={region} onChange={onChange}>
+            <select name="region" value={region} onChange={onChange} ref={imgRef} tabIndex="3">
               <option value="">지역을 선택해 주세요.</option>
               <option value="asia">Asia</option>
               <option value="north_america">North America</option>
@@ -207,7 +212,7 @@ export default function UpdateModal({
               <option value="antarctica">Antarctica</option>
             </select>
             <S.ImgUpload>
-              <label htmlFor="inputFile">사진 선택</label>
+              <label htmlFor="inputFile" tabIndex="4">사진 선택</label>
               <p>※ ctrl로 사진을 여러장 선택하실 수 있습니다.</p>
               <input
                 multiple
@@ -244,8 +249,8 @@ export default function UpdateModal({
               <Loading width="30" height="30" />
             ) : (
               <S.BtnWrapper>
-                <input type="button" onClick={closeUpdateModal} value="취소" />
-                <input type="submit" value="수정" />
+                <input type="button" tabIndex="5" onClick={closeUpdateModal} value="취소" />
+                <input type="submit" tabIndex="6" value="수정" />
               </S.BtnWrapper>
             )}
           </form>

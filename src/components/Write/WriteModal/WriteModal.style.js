@@ -82,6 +82,7 @@ const ImgUpload = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  caret-color: transparent;
   label {
     position: absolute;
     top: 50%;
@@ -93,6 +94,7 @@ const ImgUpload = styled.div`
     padding: 0.4rem 0.8rem;
     border-radius: 10px;
     transition: 0.3s;
+    caret-color: transparent;
     :hover {
       cursor: pointer;
     }
@@ -206,6 +208,7 @@ const BtnWrapper = styled.div`
     transition: 0.3s;
     margin: auto;
     border-radius: 5px;
+    caret-color: transparent;
     :hover {
       cursor: pointer;
       border: 1px solid ${primaryColor};
