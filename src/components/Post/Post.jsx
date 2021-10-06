@@ -63,12 +63,17 @@ const Post = ({
 
   let [down, setDown] = useState(false);
 
+  let [likcClick, setLickClick] = useState(false);
+
   const [widthSize, setWidthSize] = useState(window.innerWidth);
 
   // writeModal
   const [visible, setVisible] = useState(false);
 
   let history = useHistory();
+
+  // 좋아요 숫자 받아오기
+  let likeNum = useSelector((state) => state.postLike.likeNum);
 
   // 내가 해당 게시글에 좋아요을 했나 안 했나 표시
   let [likePost, setLikePost] = useState(location.state.like.includes(post_id));
@@ -87,6 +92,7 @@ const Post = ({
 
   // 좋아요 아이콘 토글 -> 할 때마다 firestore에 저장 되어야 함
   const onLikeToggle = async () => {
+    setLickClick(true);
     if (likePost) {
       setLikePost(false);
       setLikeRender("noneLike");
@@ -266,7 +272,7 @@ const Post = ({
               ) : (
                 <i onClick={onLikeToggle} className="far fa-heart"></i>
               )}
-              {update ? <span>0</span> : <span>{postData.post_like}</span>}
+              {update ? <span>0</span> : (likcClick ? <span>{likeNum}</span> : <span>{postData.post_like}</span>)}
               <p>명</p>이 좋아합니다
             </span>
             {bookmarkPost ? (

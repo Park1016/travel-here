@@ -148,6 +148,7 @@ const ImgWrapper = styled.div`
       border-radius: 50%;
       text-align: center;
       line-height: 1.3;
+      caret-color: transparent;
       :hover {
         cursor: pointer;
       }
@@ -249,6 +250,7 @@ const NamelessIcon = styled.i`
   color: darkgray;
   left: 0;
   margin: 0 0.3rem 0 0.2rem;
+  caret-color: transparent;
 `;
 const Name = styled.span`
   color: rgba(0, 0, 0, 0.6);
@@ -259,6 +261,7 @@ const CloseModal = styled.i`
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+  caret-color: transparent;
   :hover {
     cursor: pointer;
   }
