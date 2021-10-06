@@ -27,6 +27,7 @@ export default function WriteModal({ visible, isVisible, postData }) {
 
   const postRef = useRef();
   const titleRef = useRef();
+  const imgRef = useRef();
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -47,12 +48,13 @@ export default function WriteModal({ visible, isVisible, postData }) {
     e.preventDefault();
     if (!title) {
       alert("제목을 입력해 주세요.");
-      postRef.current.focus();
+      titleRef.current.focus();
     } else if (!post) {
       alert("내용을 입력해 주세요.");
-      titleRef.current.focus();
+      postRef.current.focus();
     } else if (!region) {
       alert("지역을 선택해 주세요.");
+      imgRef.current.focus();
     } else {
       setLoad(true);
       let attachmentUrl = [];
@@ -239,6 +241,7 @@ export default function WriteModal({ visible, isVisible, postData }) {
                 />
                 <select
                   name="region"
+                  ref={imgRef}
                   value={region}
                   onChange={onChange}
                   tabIndex="3"
