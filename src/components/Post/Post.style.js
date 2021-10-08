@@ -38,6 +38,7 @@ const showPost = keyframes`
 
 const Contents = styled.div`
   width: 30rem;
+  max-height: 90vh;
   background-color: white;
   border-radius: 10px;
   padding: 3rem 0;
@@ -48,7 +49,6 @@ const Contents = styled.div`
   animation-direction: normal;
   @media screen and (max-width: 500px) {
     width: 25rem;
-    height: 30rem;
     padding: 2rem 0;
   }
   @media screen and (max-width: 420px) {
@@ -58,9 +58,12 @@ const Contents = styled.div`
   @media screen and (max-width: 360px) {
     width: 20rem;
   }
+  @media screen and (max-width: 320px) {
+    width: 95vw;
+  }
   ul {
     width: 27rem;
-    max-height: 40rem;
+    max-height: 90vh;
     overflow-y: scroll;
     ${flex}
     align-items: flex-start;
@@ -91,6 +94,9 @@ const Contents = styled.div`
     @media screen and (max-width: 360px) {
       width: 18rem;
     }
+    @media screen and (max-width: 320px) {
+      width: 90vw;
+    }
   }
 `;
 
@@ -103,6 +109,7 @@ const Header = styled.li`
   position: sticky;
   top: 0;
   left: 0;
+  transform: translateY(-0.1rem);
   padding-bottom: 1rem;
   z-index: 11;
   @media screen and (max-width: 500px) {

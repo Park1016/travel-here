@@ -51,6 +51,9 @@ const Contents = styled.div`
   box-shadow: 0 0 4px ${purple};
   background-color: rgb(0, 0, 0, 0.5);
   margin-bottom: 5rem;
+  @media screen and (max-width: 320px) {
+    width: 90vw;
+  }
   ${({ check }) => {
     if (check) {
       return css`
@@ -255,6 +258,9 @@ const Content = styled.div`
   animation: ${rightclose} 800ms;
   animation-iteration-count: 1;
   animation-direction: normal;
+  @media screen and (max-width: 320px) {
+    width: 90vw;
+  }
   ${({ check }) => {
     if (check) {
       return css`
