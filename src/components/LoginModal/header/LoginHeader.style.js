@@ -39,6 +39,9 @@ const Header = styled.header`
       margin: 0;
       margin-top: -160px;
     }
+    @media screen and (max-height: 600px) {
+      transform: translateY(-4rem);
+    }
   }
   .container .box {
     position: absolute;
@@ -168,6 +171,12 @@ const Header = styled.header`
     @media screen and (max-width: 620px) {
       margin-left: calc(310px - 152.5px);
       left: 50%;
+      @media screen and (max-height: 700px) {
+        transform: translateY(-2.4rem);
+      }
+      @media screen and (max-height: 600px) {
+        transform: translateY(-4.4rem);
+      }
     }
     @media screen and (max-width: 600px) {
       margin-left: calc(300px - 152.5px);
@@ -213,12 +222,6 @@ const Header = styled.header`
     }
     @media screen and (max-width: 320px) {
       margin-left: calc(160px - 152.5px);
-    }
-    @media screen and (max-height: 700px) {
-    transform: translateY(-2.4rem);
-    }
-    @media screen and (max-height: 600px) {
-      transform: translateY(-4.4rem);
     }
   }
   .container .container-form:before {
@@ -405,13 +408,13 @@ const BoxBtn1 = styled.button`
         `;
       }
     }} 
+    @media screen and (max-height: 700px) {
+      transform: translateY(-5rem);
+    }
+    @media screen and (max-height: 600px) {
+      transform: translateY(-7rem);
+    }
   } 
-  @media screen and (max-height: 700px) {
-    transform: translateY(-5rem);
-  }
-  @media screen and (max-height: 600px) {
-    transform: translateY(-7rem);
-  }
 `;
 
 const BoxBtn2 = styled.button`
@@ -435,13 +438,13 @@ const BoxBtn2 = styled.button`
         `;
       }
     }} 
+    @media screen and (max-height: 700px) {
+      transform: translateY(-5rem);
+    }
+    @media screen and (max-height: 600px) {
+      transform: translateY(-7rem);
+    }
   } 
-  @media screen and (max-height: 700px) {
-    transform: translateY(-5rem);
-  }
-  @media screen and (max-height: 600px) {
-    transform: translateY(-7rem);
-  }
 `;
 
 const error = css`
