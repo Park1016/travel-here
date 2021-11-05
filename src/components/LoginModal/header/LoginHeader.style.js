@@ -38,9 +38,14 @@ const Header = styled.header`
       width: 0;
       margin: 0;
       margin-top: -160px;
+      @media screen and (max-height: 600px) {
+        transform: translateY(-4rem);
+      }
     }
-    @media screen and (max-height: 600px) {
-      transform: translateY(-4rem);
+    @media screen and (min-width: 620px) {
+      @media screen and (max-height: 600px) {
+          transform: translateY(-6rem);
+      }
     }
   }
   .container .box {
@@ -172,11 +177,11 @@ const Header = styled.header`
       margin-left: calc(310px - 152.5px);
       left: 50%;
       @media screen and (max-height: 700px) {
-        transform: translateY(-2.4rem);
+        transform: translateY(-1rem);
       }
-      @media screen and (max-height: 600px) {
-        transform: translateY(-4.4rem);
-      }
+      /* @media screen and (max-height: 600px) {
+        transform: translateY(-1rem);
+      } */
     }
     @media screen and (max-width: 600px) {
       margin-left: calc(300px - 152.5px);
@@ -409,11 +414,11 @@ const BoxBtn1 = styled.button`
       }
     }} 
     @media screen and (max-height: 700px) {
-      transform: translateY(-5rem);
+      transform: translateY(-3.5rem);
     }
-    @media screen and (max-height: 600px) {
-      transform: translateY(-7rem);
-    }
+    /* @media screen and (max-height: 600px) {
+      transform: translateY(-3rem);
+    } */
   } 
 `;
 
@@ -439,11 +444,11 @@ const BoxBtn2 = styled.button`
       }
     }} 
     @media screen and (max-height: 700px) {
+      transform: translateY(-3.5rem);
+    }
+    /* @media screen and (max-height: 600px) {
       transform: translateY(-5rem);
-    }
-    @media screen and (max-height: 600px) {
-      transform: translateY(-7rem);
-    }
+    } */
   } 
 `;
 
