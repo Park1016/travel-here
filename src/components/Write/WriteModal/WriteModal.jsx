@@ -181,8 +181,10 @@ export default function WriteModal({ visible, isVisible, postData }) {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      setLogin(user);
-      dispatch(userMiddleware(user.uid, "", "init"));
+      if(user){
+        setLogin(user);
+        dispatch(userMiddleware(user.uid, "", "init"));
+      }
     });
   }, []);
 

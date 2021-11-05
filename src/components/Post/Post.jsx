@@ -194,9 +194,11 @@ const Post = ({
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      setUser(user);
-      dispatch(userMiddleware(user.uid, '', 'init'));
-      dispatch(mypagePostMiddleware(user.uid));
+      if(user){
+        setUser(user);
+        dispatch(userMiddleware(user.uid, '', 'init'));
+        dispatch(mypagePostMiddleware(user.uid));
+      }
     });
     dispatch(likeMiddleware(post_id, "init"));
     setTime(timeCalculate(post_date));

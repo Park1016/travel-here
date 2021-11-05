@@ -214,6 +214,12 @@ const Header = styled.header`
     @media screen and (max-width: 320px) {
       margin-left: calc(160px - 152.5px);
     }
+    @media screen and (max-height: 700px) {
+    transform: translateY(-2.4rem);
+    }
+    @media screen and (max-height: 600px) {
+      transform: translateY(-4.4rem);
+    }
   }
   .container .container-form:before {
     content: '✔';
@@ -390,6 +396,7 @@ const BoxBtn1 = styled.button`
         return css`
           color: #fff;
           background: #a19f9f;
+          /* background: #FF73B3; */
         `;
       } else {
         return css`
@@ -399,6 +406,12 @@ const BoxBtn1 = styled.button`
       }
     }} 
   } 
+  @media screen and (max-height: 700px) {
+    transform: translateY(-5rem);
+  }
+  @media screen and (max-height: 600px) {
+    transform: translateY(-7rem);
+  }
 `;
 
 const BoxBtn2 = styled.button`
@@ -407,14 +420,13 @@ const BoxBtn2 = styled.button`
   background: rgb(255,255,255,0.7);
   @media screen and (max-width: 620px) {
     left: 50%;
-    /* color: darkgray;
-    background: #e6e3e3; */
     transform: translateY(-2.5rem);
     ${(props) => {
       if (props.sign) {
         return css`
           color: #fff;
           background: #a19f9f;
+          /* background: #1DA1F2; */
         `;
       } else {
         return css`
@@ -424,6 +436,12 @@ const BoxBtn2 = styled.button`
       }
     }} 
   } 
+  @media screen and (max-height: 700px) {
+    transform: translateY(-5rem);
+  }
+  @media screen and (max-height: 600px) {
+    transform: translateY(-7rem);
+  }
 `;
 
 const error = css`
